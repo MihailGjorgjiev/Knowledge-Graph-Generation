@@ -12,7 +12,7 @@ class DataLoader:
             text = re.sub(r'\s+,', ',', text)
             return text
 
-        tokens = pd.read_parquet(filepath)[col][:5]
+        tokens = pd.read_parquet(filepath)[col][:]
         str_list = []
         for token in tokens:
             str_list.append(" ".join(token))

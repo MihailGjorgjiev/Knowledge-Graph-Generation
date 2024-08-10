@@ -2,7 +2,7 @@ import graphPopulation
 import knowledgeExtraction
 import dataLoading
 import entityRecognitionLinking
-
+from svo_rules import rules
 dataLoader=dataLoading.DataLoader()
 
 inputText=dataLoader.load_text_from_file(filepath="train-00000-of-00001.parquet")
@@ -20,6 +20,7 @@ for sop in sop_list:
     sop_list_strings.append(temp)
 
 # print(sop_list_strings)
+sop_list_strings=rules(sop_list_strings)
 
 
 entityRecognitionLinkingObj = entityRecognitionLinking.EntityRecognitionLinking()
